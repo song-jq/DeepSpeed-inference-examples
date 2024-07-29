@@ -1,0 +1,12 @@
+[2024-02-26 08:26:55,160] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-26 08:27:01,608] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-02-26 08:27:01,609] [INFO] [runner.py:555:main] cmd = /home/kechengsheji/anaconda3/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None inference-test.py --model bloom=3b --batch_size 9 --test_performance --world_size 2
+[2024-02-26 08:27:02,720] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-26 08:27:03,261] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2024-02-26 08:27:03,262] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=2, node_rank=0
+[2024-02-26 08:27:03,262] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2024-02-26 08:27:03,262] [INFO] [launch.py:163:main] dist_world_size=2
+[2024-02-26 08:27:03,262] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2024-02-26 08:27:04,285] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 39765
+[2024-02-26 08:27:04,286] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 39766
+[2024-02-26 08:27:04,308] [ERROR] [launch.py:321:sigkill_handler] ['/home/kechengsheji/anaconda3/bin/python', '-u', 'inference-test.py', '--local_rank=1', '--model', 'bloom=3b', '--batch_size', '9', '--test_performance', '--world_size', '2'] exits with return code = 2

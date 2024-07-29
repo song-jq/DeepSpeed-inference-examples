@@ -1,0 +1,1059 @@
+[2024-05-15 06:11:55,032] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-15 06:11:56,972] [INFO] [runner.py:452:main] Using IP address of 10.0.16.14 for node 10.0.16.14
+[2024-05-15 06:11:56,974] [INFO] [multinode_runner.py:70:get_cmd] Running on the following workers: 10.0.16.14,10.0.16.13
+[2024-05-15 06:11:56,974] [INFO] [runner.py:555:main] cmd = pdsh -S -f 1024 -w 10.0.16.14,10.0.16.13 export PYTHONPATH=/home/kechengsheji/DeepSpeedExamples/inference/huggingface/summarization;  cd /home/kechengsheji/DeepSpeedExamples/inference/huggingface/summarization; /home/kechengsheji/anaconda3/envs/Test04/bin/python -u -m deepspeed.launcher.launch --world_info=eyIxMC4wLjE2LjE0IjogWzAsIDFdLCAiMTAuMC4xNi4xMyI6IFswLCAxXX0= --node_rank=%n --master_addr=10.0.16.14 --master_port=29500 test-bart.py --batch_size '128'
+10.0.16.13: [2024-05-15 14:11:58,513] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+10.0.16.13: [2024-05-15 14:11:58,867] [INFO] [launch.py:145:main] WORLD INFO DICT: {'10.0.16.14': [0, 1], '10.0.16.13': [0, 1]}
+10.0.16.13: [2024-05-15 14:11:58,867] [INFO] [launch.py:151:main] nnodes=2, num_local_procs=2, node_rank=1
+10.0.16.13: [2024-05-15 14:11:58,867] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'10.0.16.14': [0, 1], '10.0.16.13': [2, 3]})
+10.0.16.13: [2024-05-15 14:11:58,867] [INFO] [launch.py:163:main] dist_world_size=4
+10.0.16.13: [2024-05-15 14:11:58,867] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1
+10.0.16.14: [2024-05-15 06:11:58,950] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+10.0.16.14: [2024-05-15 06:11:59,267] [INFO] [launch.py:145:main] WORLD INFO DICT: {'10.0.16.14': [0, 1], '10.0.16.13': [0, 1]}
+10.0.16.14: [2024-05-15 06:11:59,267] [INFO] [launch.py:151:main] nnodes=2, num_local_procs=2, node_rank=0
+10.0.16.14: [2024-05-15 06:11:59,267] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'10.0.16.14': [0, 1], '10.0.16.13': [2, 3]})
+10.0.16.14: [2024-05-15 06:11:59,267] [INFO] [launch.py:163:main] dist_world_size=4
+10.0.16.14: [2024-05-15 06:11:59,267] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1
+10.0.16.13: [2024-05-15 14:12:00,601] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+10.0.16.13: [2024-05-15 14:12:00,651] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+10.0.16.14: [2024-05-15 06:12:00,930] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+10.0.16.14: [2024-05-15 06:12:00,975] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+10.0.16.14: [2024-05-15 06:12:05,219] [INFO] [logging.py:96:log_dist] [Rank -1] DeepSpeed info: version=0.9.5+fc9e1ee0, git-hash=fc9e1ee0, git-branch=HEAD
+10.0.16.14: config_dict: {'mp_size': 4, 'dtype': torch.float32, 'tp_proportion': (5, 1)}
+10.0.16.14: [2024-05-15 06:12:05,220] [WARNING] [config_utils.py:69:_process_deprecated_field] Config parameter mp_size is deprecated use tensor_parallel.tp_size instead
+10.0.16.14: ds_inference_config: replace_with_kernel_inject=False dtype=torch.float32 tensor_parallel=DeepSpeedTPConfig(enabled=True, tp_size=4, mpu=None, tp_group=None) enable_cuda_graph=False zero=DeepSpeedZeroConfig(stage=0, contiguous_gradients=True, reduce_scatter=True, reduce_bucket_size=500,000,000, allgather_partitions=True, allgather_bucket_size=500,000,000, overlap_comm=False, load_from_fp32_weights=True, elastic_checkpoint=False, offload_param=None, offload_optimizer=None, sub_group_size=1,000,000,000, cpu_offload_param=None, cpu_offload_use_pin_memory=None, cpu_offload=None, prefetch_bucket_size=50,000,000, param_persistence_threshold=100,000, model_persistence_threshold=sys.maxsize, max_live_parameters=1,000,000,000, max_reuse_distance=1,000,000,000, gather_16bit_weights_on_model_save=False, stage3_gather_fp16_weights_on_model_save=False, ignore_unused_parameters=True, legacy_stage1=False, round_robin_gradients=False, mics_shard_size=-1, mics_hierarchical_params_gather=False, memory_efficient_linear=True) triangular_masking=True moe=DeepSpeedMoEConfig(enabled=True, ep_size=1, moe_experts=[1], type='standard', ep_mp_group=None, ep_group=None) quant=QuantizationConfig(enabled=True, activation=ActivationQuantConfig(q_type='symmetric', q_groups=1, enabled=True, num_bits=8), weight=WeightQuantConfig(q_type='symmetric', q_groups=1, enabled=True, num_bits=8), qkv=QKVQuantConfig(enabled=True)) checkpoint=None base_dir=None set_empty_params=False save_mp_checkpoint_path=None checkpoint_config=InferenceCheckpointConfig(checkpoint_dir=None, save_mp_checkpoint_path=None, base_dir=None) return_tuple=True training_mp_size=1 replace_method='auto' injection_policy=None injection_policy_tuple=None config=None max_out_tokens=1024 min_out_tokens=1 transposed_mode=False mpu=None ep_size=1 ep_group=None ep_mp_group=None moe_experts=[1] moe_type='standard' tp_proportion=(5, 1)
+10.0.16.14: [2024-05-15 06:12:05,220] [INFO] [logging.py:96:log_dist] [Rank -1] quantize_bits = 8 mlp_extra_grouping = False, quantize_groups = 1
+10.0.16.14: [2024-05-15 06:12:05,222] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+10.0.16.14: [2024-05-15 06:12:05,222] [INFO] [comm.py:594:init_distributed] cdb=None
+10.0.16.14: [2024-05-15 06:12:05,222] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+10.0.16.14: [2024-05-15 06:12:05,713] [INFO] [logging.py:96:log_dist] [Rank -1] DeepSpeed info: version=0.9.5+fc9e1ee0, git-hash=fc9e1ee0, git-branch=HEAD
+10.0.16.14: config_dict: {'mp_size': 4, 'dtype': torch.float32, 'tp_proportion': (5, 1)}
+10.0.16.14: [2024-05-15 06:12:05,714] [WARNING] [config_utils.py:69:_process_deprecated_field] Config parameter mp_size is deprecated use tensor_parallel.tp_size instead
+10.0.16.14: ds_inference_config: replace_with_kernel_inject=False dtype=torch.float32 tensor_parallel=DeepSpeedTPConfig(enabled=True, tp_size=4, mpu=None, tp_group=None) enable_cuda_graph=False zero=DeepSpeedZeroConfig(stage=0, contiguous_gradients=True, reduce_scatter=True, reduce_bucket_size=500,000,000, allgather_partitions=True, allgather_bucket_size=500,000,000, overlap_comm=False, load_from_fp32_weights=True, elastic_checkpoint=False, offload_param=None, offload_optimizer=None, sub_group_size=1,000,000,000, cpu_offload_param=None, cpu_offload_use_pin_memory=None, cpu_offload=None, prefetch_bucket_size=50,000,000, param_persistence_threshold=100,000, model_persistence_threshold=sys.maxsize, max_live_parameters=1,000,000,000, max_reuse_distance=1,000,000,000, gather_16bit_weights_on_model_save=False, stage3_gather_fp16_weights_on_model_save=False, ignore_unused_parameters=True, legacy_stage1=False, round_robin_gradients=False, mics_shard_size=-1, mics_hierarchical_params_gather=False, memory_efficient_linear=True) triangular_masking=True moe=DeepSpeedMoEConfig(enabled=True, ep_size=1, moe_experts=[1], type='standard', ep_mp_group=None, ep_group=None) quant=QuantizationConfig(enabled=True, activation=ActivationQuantConfig(q_type='symmetric', q_groups=1, enabled=True, num_bits=8), weight=WeightQuantConfig(q_type='symmetric', q_groups=1, enabled=True, num_bits=8), qkv=QKVQuantConfig(enabled=True)) checkpoint=None base_dir=None set_empty_params=False save_mp_checkpoint_path=None checkpoint_config=InferenceCheckpointConfig(checkpoint_dir=None, save_mp_checkpoint_path=None, base_dir=None) return_tuple=True training_mp_size=1 replace_method='auto' injection_policy=None injection_policy_tuple=None config=None max_out_tokens=1024 min_out_tokens=1 transposed_mode=False mpu=None ep_size=1 ep_group=None ep_mp_group=None moe_experts=[1] moe_type='standard' tp_proportion=(5, 1)
+10.0.16.14: [2024-05-15 06:12:05,714] [INFO] [logging.py:96:log_dist] [Rank -1] quantize_bits = 8 mlp_extra_grouping = False, quantize_groups = 1
+10.0.16.14: [2024-05-15 06:12:05,716] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+10.0.16.14: [2024-05-15 06:12:05,716] [INFO] [comm.py:594:init_distributed] cdb=None
+10.0.16.13: [2024-05-15 14:12:05,759] [INFO] [logging.py:96:log_dist] [Rank -1] DeepSpeed info: version=0.9.5+fc9e1ee0, git-hash=fc9e1ee0, git-branch=HEAD
+10.0.16.13: config_dict: {'mp_size': 4, 'dtype': torch.float32, 'tp_proportion': (5, 1)}
+10.0.16.13: [2024-05-15 14:12:05,760] [WARNING] [config_utils.py:69:_process_deprecated_field] Config parameter mp_size is deprecated use tensor_parallel.tp_size instead
+10.0.16.13: ds_inference_config: replace_with_kernel_inject=False dtype=torch.float32 tensor_parallel=DeepSpeedTPConfig(enabled=True, tp_size=4, mpu=None, tp_group=None) enable_cuda_graph=False zero=DeepSpeedZeroConfig(stage=0, contiguous_gradients=True, reduce_scatter=True, reduce_bucket_size=500,000,000, allgather_partitions=True, allgather_bucket_size=500,000,000, overlap_comm=False, load_from_fp32_weights=True, elastic_checkpoint=False, offload_param=None, offload_optimizer=None, sub_group_size=1,000,000,000, cpu_offload_param=None, cpu_offload_use_pin_memory=None, cpu_offload=None, prefetch_bucket_size=50,000,000, param_persistence_threshold=100,000, model_persistence_threshold=sys.maxsize, max_live_parameters=1,000,000,000, max_reuse_distance=1,000,000,000, gather_16bit_weights_on_model_save=False, stage3_gather_fp16_weights_on_model_save=False, ignore_unused_parameters=True, legacy_stage1=False, round_robin_gradients=False, mics_shard_size=-1, mics_hierarchical_params_gather=False, memory_efficient_linear=True) triangular_masking=True moe=DeepSpeedMoEConfig(enabled=True, ep_size=1, moe_experts=[1], type='standard', ep_mp_group=None, ep_group=None) quant=QuantizationConfig(enabled=True, activation=ActivationQuantConfig(q_type='symmetric', q_groups=1, enabled=True, num_bits=8), weight=WeightQuantConfig(q_type='symmetric', q_groups=1, enabled=True, num_bits=8), qkv=QKVQuantConfig(enabled=True)) checkpoint=None base_dir=None set_empty_params=False save_mp_checkpoint_path=None checkpoint_config=InferenceCheckpointConfig(checkpoint_dir=None, save_mp_checkpoint_path=None, base_dir=None) return_tuple=True training_mp_size=1 replace_method='auto' injection_policy=None injection_policy_tuple=None config=None max_out_tokens=1024 min_out_tokens=1 transposed_mode=False mpu=None ep_size=1 ep_group=None ep_mp_group=None moe_experts=[1] moe_type='standard' tp_proportion=(5, 1)
+10.0.16.13: [2024-05-15 14:12:05,760] [INFO] [logging.py:96:log_dist] [Rank -1] quantize_bits = 8 mlp_extra_grouping = False, quantize_groups = 1
+10.0.16.13: [2024-05-15 14:12:05,762] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+10.0.16.13: [2024-05-15 14:12:05,762] [INFO] [comm.py:594:init_distributed] cdb=None
+10.0.16.13: [2024-05-15 14:12:05,814] [INFO] [logging.py:96:log_dist] [Rank -1] DeepSpeed info: version=0.9.5+fc9e1ee0, git-hash=fc9e1ee0, git-branch=HEAD
+10.0.16.13: config_dict: {'mp_size': 4, 'dtype': torch.float32, 'tp_proportion': (5, 1)}
+10.0.16.13: [2024-05-15 14:12:05,815] [WARNING] [config_utils.py:69:_process_deprecated_field] Config parameter mp_size is deprecated use tensor_parallel.tp_size instead
+10.0.16.13: ds_inference_config: replace_with_kernel_inject=False dtype=torch.float32 tensor_parallel=DeepSpeedTPConfig(enabled=True, tp_size=4, mpu=None, tp_group=None) enable_cuda_graph=False zero=DeepSpeedZeroConfig(stage=0, contiguous_gradients=True, reduce_scatter=True, reduce_bucket_size=500,000,000, allgather_partitions=True, allgather_bucket_size=500,000,000, overlap_comm=False, load_from_fp32_weights=True, elastic_checkpoint=False, offload_param=None, offload_optimizer=None, sub_group_size=1,000,000,000, cpu_offload_param=None, cpu_offload_use_pin_memory=None, cpu_offload=None, prefetch_bucket_size=50,000,000, param_persistence_threshold=100,000, model_persistence_threshold=sys.maxsize, max_live_parameters=1,000,000,000, max_reuse_distance=1,000,000,000, gather_16bit_weights_on_model_save=False, stage3_gather_fp16_weights_on_model_save=False, ignore_unused_parameters=True, legacy_stage1=False, round_robin_gradients=False, mics_shard_size=-1, mics_hierarchical_params_gather=False, memory_efficient_linear=True) triangular_masking=True moe=DeepSpeedMoEConfig(enabled=True, ep_size=1, moe_experts=[1], type='standard', ep_mp_group=None, ep_group=None) quant=QuantizationConfig(enabled=True, activation=ActivationQuantConfig(q_type='symmetric', q_groups=1, enabled=True, num_bits=8), weight=WeightQuantConfig(q_type='symmetric', q_groups=1, enabled=True, num_bits=8), qkv=QKVQuantConfig(enabled=True)) checkpoint=None base_dir=None set_empty_params=False save_mp_checkpoint_path=None checkpoint_config=InferenceCheckpointConfig(checkpoint_dir=None, save_mp_checkpoint_path=None, base_dir=None) return_tuple=True training_mp_size=1 replace_method='auto' injection_policy=None injection_policy_tuple=None config=None max_out_tokens=1024 min_out_tokens=1 transposed_mode=False mpu=None ep_size=1 ep_group=None ep_mp_group=None moe_experts=[1] moe_type='standard' tp_proportion=(5, 1)
+10.0.16.13: [2024-05-15 14:12:05,815] [INFO] [logging.py:96:log_dist] [Rank -1] quantize_bits = 8 mlp_extra_grouping = False, quantize_groups = 1
+10.0.16.13: [2024-05-15 14:12:05,817] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+10.0.16.13: [2024-05-15 14:12:05,817] [INFO] [comm.py:594:init_distributed] cdb=None
+10.0.16.13: tensor_parallel_group: <torch.distributed.distributed_c10d.ProcessGroup object at 0x7fd83311dc30>
+10.0.16.13: !deepspeed engine has no moe layers
+10.0.16.13: tensor_parallel_group: <torch.distributed.distributed_c10d.ProcessGroup object at 0x7f14c55624b0>
+10.0.16.13: !deepspeed engine has no moe layers
+10.0.16.14: tensor_parallel_group: <torch.distributed.distributed_c10d.ProcessGroup object at 0x7f35e3d3dd30>
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj')
+10.0.16.14: tensor_parallel_group: <torch.distributed.distributed_c10d.ProcessGroup object at 0x7f71102e2370>
+10.0.16.14: _replace_module: BartForConditionalGeneration(
+10.0.16.14:   (model): BartModel(
+10.0.16.14:     (shared): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:     (encoder): BartEncoder(
+10.0.16.14:       (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:       (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:       (layers): ModuleList(
+10.0.16.14:         (0-5): 6 x BartEncoderLayer(
+10.0.16.14:           (self_attn): BartAttention(
+10.0.16.14:             (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           )
+10.0.16.14:           (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:           (activation_fn): GELUActivation()
+10.0.16.14:           (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:           (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:           (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:         )
+10.0.16.14:       )
+10.0.16.14:       (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     )
+10.0.16.14:     (decoder): BartDecoder(
+10.0.16.14:       (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:       (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:       (layers): ModuleList(
+10.0.16.14:         (0-5): 6 x BartDecoderLayer(
+10.0.16.14:           (self_attn): BartAttention(
+10.0.16.14:             (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           )
+10.0.16.14:           (activation_fn): GELUActivation()
+10.0.16.14:           (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:           (encoder_attn): BartAttention(
+10.0.16.14:             (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           )
+10.0.16.14:           (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:           (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:           (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:           (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:         )
+10.0.16.14:       )
+10.0.16.14:       (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     )
+10.0.16.14:   )
+10.0.16.14:   (lm_head): Linear(in_features=768, out_features=50265, bias=False)
+10.0.16.14: )
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: _replace_module: BartModel(
+10.0.16.14:   (shared): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:   (encoder): BartEncoder(
+10.0.16.14:     (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:     (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:     (layers): ModuleList(
+10.0.16.14:       (0-5): 6 x BartEncoderLayer(
+10.0.16.14:         (self_attn): BartAttention(
+10.0.16.14:           (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         )
+10.0.16.14:         (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:         (activation_fn): GELUActivation()
+10.0.16.14:         (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:         (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:         (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:       )
+10.0.16.14:     )
+10.0.16.14:     (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   )
+10.0.16.14:   (decoder): BartDecoder(
+10.0.16.14:     (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:     (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:     (layers): ModuleList(
+10.0.16.14:       (0-5): 6 x BartDecoderLayer(
+10.0.16.14:         (self_attn): BartAttention(
+10.0.16.14:           (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         )
+10.0.16.14:         (activation_fn): GELUActivation()
+10.0.16.14:         (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:         (encoder_attn): BartAttention(
+10.0.16.14:           (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         )
+10.0.16.14:         (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:         (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:         (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:         (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:       )
+10.0.16.14:     )
+10.0.16.14:     (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   )
+10.0.16.14: )
+10.0.16.14: _replace_module: Embedding(50265, 768, padding_idx=1)
+10.0.16.14: _replace_module: BartEncoder(
+10.0.16.14:   (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:   (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:   (layers): ModuleList(
+10.0.16.14:     (0-5): 6 x BartEncoderLayer(
+10.0.16.14:       (self_attn): BartAttention(
+10.0.16.14:         (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       )
+10.0.16.14:       (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:       (activation_fn): GELUActivation()
+10.0.16.14:       (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:       (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:       (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     )
+10.0.16.14:   )
+10.0.16.14:   (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Embedding(50265, 768, padding_idx=1)
+10.0.16.14: _replace_module: BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14: _replace_module: ModuleList(
+10.0.16.14:   (0-5): 6 x BartEncoderLayer(
+10.0.16.14:     (self_attn): BartAttention(
+10.0.16.14:       (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.13: replace without policy
+10.0.16.14:       (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14:     )
+10.0.16.14:     (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     (activation_fn): GELUActivation()
+10.0.16.14:     (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:     (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.13: replace without policy
+10.0.16.14:     (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   )
+10.0.16.14: )
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj')
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj')
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj')
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj')
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2', 'encoder_attn.out_proj')
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj')
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2', 'encoder_attn.out_proj')
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2', 'encoder_attn.out_proj')
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: replace without policy
+10.0.16.14: replace without policyall_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: 
+10.0.16.14: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2', 'encoder_attn.out_proj')
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2', 'encoder_attn.out_proj')
+10.0.16.13: replace without policy
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj', 'encoder_attn.out_proj')
+10.0.16.14: _replace_module: BartDecoder(
+10.0.16.14:   (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:   (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:   (layers): ModuleList(
+10.0.16.14:     (0-5): 6 x BartDecoderLayer(
+10.0.16.14:       (self_attn): BartAttention(
+10.0.16.14:         (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       )
+10.0.16.14:       (activation_fn): GELUActivation()
+10.0.16.14:       (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:       (encoder_attn): BartAttention(
+10.0.16.14:         (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       )
+10.0.16.14:       (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:       (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:       (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:       (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     )
+10.0.16.14:   )
+10.0.16.14:   (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Embedding(50265, 768, padding_idx=1)
+10.0.16.14: _replace_module: BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14: _replace_module: ModuleList(
+10.0.16.14:   (0-5): 6 x BartDecoderLayer(
+10.0.16.14:     (self_attn): BartAttention(
+10.0.16.14:       (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     )
+10.0.16.14:     (activation_fn): GELUActivation()
+10.0.16.14:     (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     (encoder_attn): BartAttention(
+10.0.16.14:       (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     )
+10.0.16.14:     (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:     (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:     (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   )
+10.0.16.14: )
+10.0.16.14: _replace_module: BartDecoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (encoder_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:   (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartDecoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (encoder_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:   (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.13: replace without policy
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.13: all_reduce_linears: ('self_attn.out_proj', '.fc2', 'encoder_attn.out_proj')
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.13: replace without policy
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj', 'encoder_attn.out_proj')
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartDecoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (encoder_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:   (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('self_attn.out_proj', '.fc2')
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartDecoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (encoder_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:   (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.13: replace without policy
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj', 'encoder_attn.out_proj')
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartDecoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (encoder_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:   (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartDecoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (encoder_attn): BartAttention(
+10.0.16.14:     (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   )
+10.0.16.14:   (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:   (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:   (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14: _replace_module: Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=50265, bias=False)
+10.0.16.14: _replace_module: BartForConditionalGeneration(
+10.0.16.14:   (model): BartModel(
+10.0.16.14:     (shared): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:     (encoder): BartEncoder(
+10.0.16.14:       (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:       (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:       (layers): ModuleList(
+10.0.16.14:         (0-5): 6 x BartEncoderLayer(
+10.0.16.14:           (self_attn): BartAttention(
+10.0.16.14:             (k_proj): LinearLayer()
+10.0.16.14:             (v_proj): LinearLayer()
+10.0.16.14:             (q_proj): LinearLayer()
+10.0.16.14:             (out_proj): LinearAllreduce()
+10.0.16.14:           )
+10.0.16.14:           (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:           (activation_fn): GELUActivation()
+10.0.16.14:           (fc1): LinearLayer()
+10.0.16.14:           (fc2): LinearAllreduce()
+10.0.16.14:           (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:         )
+10.0.16.14:       )
+10.0.16.14:       (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     )
+10.0.16.14:     (decoder): BartDecoder(
+10.0.16.13: replace without policy
+10.0.16.14:       (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj', 'encoder_attn.out_proj')
+10.0.16.14:       (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:       (layers): ModuleList(
+10.0.16.14:         (0-5): 6 x BartDecoderLayer(
+10.0.16.14:           (self_attn): BartAttention(
+10.0.16.14:             (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           )
+10.0.16.14:           (activation_fn): GELUActivation()
+10.0.16.14:           (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:           (encoder_attn): BartAttention(
+10.0.16.14:             (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:             (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           )
+10.0.16.14:           (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:           (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:           (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:           (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:         )
+10.0.16.14:       )
+10.0.16.14:       (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     )
+10.0.16.14:   )
+10.0.16.14:   (lm_head): Linear(in_features=768, out_features=50265, bias=False)
+10.0.16.14: )
+10.0.16.14: _replace_module: BartModel(
+10.0.16.14:   (shared): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:   (encoder): BartEncoder(
+10.0.16.14:     (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:     (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:     (layers): ModuleList(
+10.0.16.14:       (0-5): 6 x BartEncoderLayer(
+10.0.16.14:         (self_attn): BartAttention(
+10.0.16.14:           (k_proj): LinearLayer()
+10.0.16.14:           (v_proj): LinearLayer()
+10.0.16.14:           (q_proj): LinearLayer()
+10.0.16.14:           (out_proj): LinearAllreduce()
+10.0.16.14:         )
+10.0.16.14:         (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:         (activation_fn): GELUActivation()
+10.0.16.14:         (fc1): LinearLayer()
+10.0.16.14:         (fc2): LinearAllreduce()
+10.0.16.14:         (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:       )
+10.0.16.14:     )
+10.0.16.14:     (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   )
+10.0.16.14:   (decoder): BartDecoder(
+10.0.16.14:     (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:     (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:     (layers): ModuleList(
+10.0.16.14:       (0-5): 6 x BartDecoderLayer(
+10.0.16.14:         (self_attn): BartAttention(
+10.0.16.14:           (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         )
+10.0.16.14:         (activation_fn): GELUActivation()
+10.0.16.14:         (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:         (encoder_attn): BartAttention(
+10.0.16.14:           (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:           (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         )
+10.0.16.14:         (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:         (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:         (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:         (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:       )
+10.0.16.14:     )
+10.0.16.14:     (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   )
+10.0.16.14: )
+10.0.16.14: _replace_module: Embedding(50265, 768, padding_idx=1)
+10.0.16.14: _replace_module: BartEncoder(
+10.0.16.14:   (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:   (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:   (layers): ModuleList(
+10.0.16.14:     (0-5): 6 x BartEncoderLayer(
+10.0.16.14:       (self_attn): BartAttention(
+10.0.16.14:         (k_proj): LinearLayer()
+10.0.16.14:         (v_proj): LinearLayer()
+10.0.16.14:         (q_proj): LinearLayer()
+10.0.16.14:         (out_proj): LinearAllreduce()
+10.0.16.14:       )
+10.0.16.14:       (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:       (activation_fn): GELUActivation()
+10.0.16.14:       (fc1): LinearLayer()
+10.0.16.14:       (fc2): LinearAllreduce()
+10.0.16.14:       (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     )
+10.0.16.14:   )
+10.0.16.14:   (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Embedding(50265, 768, padding_idx=1)
+10.0.16.14: _replace_module: BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14: _replace_module: ModuleList(
+10.0.16.14:   (0-5): 6 x BartEncoderLayer(
+10.0.16.14:     (self_attn): BartAttention(
+10.0.16.14:       (k_proj): LinearLayer()
+10.0.16.14:       (v_proj): LinearLayer()
+10.0.16.14:       (q_proj): LinearLayer()
+10.0.16.14:       (out_proj): LinearAllreduce()
+10.0.16.14:     )
+10.0.16.14:     (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     (activation_fn): GELUActivation()
+10.0.16.14:     (fc1): LinearLayer()
+10.0.16.14:     (fc2): LinearAllreduce()
+10.0.16.14:     (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   )
+10.0.16.14: )
+10.0.16.14: _replace_module: BartEncoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): LinearLayer()
+10.0.16.14:     (v_proj): LinearLayer()
+10.0.16.14:     (q_proj): LinearLayer()
+10.0.16.14:     (out_proj): LinearAllreduce()
+10.0.16.14:   )
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.13: replace without policy
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (fc1): LinearLayer()
+10.0.16.14:   (fc2): LinearAllreduce()
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj', 'encoder_attn.out_proj')
+10.0.16.14: )
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): LinearLayer()
+10.0.16.14:   (v_proj): LinearLayer()
+10.0.16.14:   (q_proj): LinearLayer()
+10.0.16.14:   (out_proj): LinearAllreduce()
+10.0.16.14: )
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartEncoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): LinearLayer()
+10.0.16.14:     (v_proj): LinearLayer()
+10.0.16.14:     (q_proj): LinearLayer()
+10.0.16.14:     (out_proj): LinearAllreduce()
+10.0.16.14:   )
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (fc1): LinearLayer()
+10.0.16.14:   (fc2): LinearAllreduce()
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): LinearLayer()
+10.0.16.14:   (v_proj): LinearLayer()
+10.0.16.14:   (q_proj): LinearLayer()
+10.0.16.14:   (out_proj): LinearAllreduce()
+10.0.16.14: )
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartEncoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): LinearLayer()
+10.0.16.14:     (v_proj): LinearLayer()
+10.0.16.14:     (q_proj): LinearLayer()
+10.0.16.14:     (out_proj): LinearAllreduce()
+10.0.16.14:   )
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (fc1): LinearLayer()
+10.0.16.14:   (fc2): LinearAllreduce()
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): LinearLayer()
+10.0.16.14:   (v_proj): LinearLayer()
+10.0.16.14:   (q_proj): LinearLayer()
+10.0.16.14:   (out_proj): LinearAllreduce()
+10.0.16.14: )
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartEncoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): LinearLayer()
+10.0.16.14:     (v_proj): LinearLayer()
+10.0.16.14:     (q_proj): LinearLayer()
+10.0.16.14:     (out_proj): LinearAllreduce()
+10.0.16.14:   )
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (fc1): LinearLayer()
+10.0.16.14:   (fc2): LinearAllreduce()
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): LinearLayer()
+10.0.16.14:   (v_proj): LinearLayer()
+10.0.16.14:   (q_proj): LinearLayer()
+10.0.16.14:   (out_proj): LinearAllreduce()
+10.0.16.14: )
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartEncoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): LinearLayer()
+10.0.16.14:     (v_proj): LinearLayer()
+10.0.16.14:     (q_proj): LinearLayer()
+10.0.16.14:     (out_proj): LinearAllreduce()
+10.0.16.14:   )
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (fc1): LinearLayer()
+10.0.16.14:   (fc2): LinearAllreduce()
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): LinearLayer()
+10.0.16.14:   (v_proj): LinearLayer()
+10.0.16.14:   (q_proj): LinearLayer()
+10.0.16.14:   (out_proj): LinearAllreduce()
+10.0.16.14: )
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.13: replace without policy
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.13: all_reduce_linears: ('.fc2', 'self_attn.out_proj', 'encoder_attn.out_proj')
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartEncoderLayer(
+10.0.16.14:   (self_attn): BartAttention(
+10.0.16.14:     (k_proj): LinearLayer()
+10.0.16.14:     (v_proj): LinearLayer()
+10.0.16.14:     (q_proj): LinearLayer()
+10.0.16.14:     (out_proj): LinearAllreduce()
+10.0.16.14:   )
+10.0.16.14:   (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   (activation_fn): GELUActivation()
+10.0.16.14:   (fc1): LinearLayer()
+10.0.16.14:   (fc2): LinearAllreduce()
+10.0.16.14:   (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: BartAttention(
+10.0.16.14:   (k_proj): LinearLayer()
+10.0.16.14:   (v_proj): LinearLayer()
+10.0.16.14:   (q_proj): LinearLayer()
+10.0.16.14:   (out_proj): LinearAllreduce()
+10.0.16.14: )
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: GELUActivation()
+10.0.16.14: _replace_module: LinearLayer()
+10.0.16.14: _replace_module: LinearAllreduce()
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: BartDecoder(
+10.0.16.14:   (embed_tokens): Embedding(50265, 768, padding_idx=1)
+10.0.16.14:   (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14:   (layers): ModuleList(
+10.0.16.14:     (0-5): 6 x BartDecoderLayer(
+10.0.16.14:       (self_attn): BartAttention(
+10.0.16.14:         (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       )
+10.0.16.14:       (activation_fn): GELUActivation()
+10.0.16.14:       (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:       (encoder_attn): BartAttention(
+10.0.16.14:         (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:         (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       )
+10.0.16.14:       (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:       (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:       (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:       (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     )
+10.0.16.14:   )
+10.0.16.14:   (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: )
+10.0.16.14: _replace_module: Embedding(50265, 768, padding_idx=1)
+10.0.16.14: _replace_module: BartLearnedPositionalEmbedding(1026, 768)
+10.0.16.14: _replace_module: ModuleList(
+10.0.16.14:   (0-5): 6 x BartDecoderLayer(
+10.0.16.14:     (self_attn): BartAttention(
+10.0.16.14:       (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     )
+10.0.16.14:     (activation_fn): GELUActivation()
+10.0.16.14:     (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     (encoder_attn): BartAttention(
+10.0.16.14:       (k_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (v_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (q_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:       (out_proj): Linear(in_features=768, out_features=768, bias=True)
+10.0.16.14:     )
+10.0.16.14:     (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:     (fc1): Linear(in_features=768, out_features=3072, bias=True)
+10.0.16.14:     (fc2): Linear(in_features=3072, out_features=768, bias=True)
+10.0.16.14:     (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14:   )
+10.0.16.14: )
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: name: encoder_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: name: encoder_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: name: encoder_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: name: encoder_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: name: encoder_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: replace without policy
+10.0.16.14: all_reduce_linears: ('encoder_attn.out_proj', 'self_attn.out_proj', '.fc2')
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: name: self_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: num_heads: 12
+10.0.16.14: embed_dim: 768
+10.0.16.14: name: encoder_attn.out_proj in all_reduce_linears, weight shape: torch.Size([768, 768])
+10.0.16.14: name: .fc2 in all_reduce_linears, weight shape: torch.Size([768, 3072])
+10.0.16.14: _replace_module: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+10.0.16.14: _replace_module: Linear(in_features=768, out_features=50265, bias=False)
+10.0.16.14: rank: 0 end2end time is 13823.095772001478 ms
+10.0.16.14: rank: 0 model time is 2016.7424864592376 ms
+10.0.16.14: [2024-05-15 06:19:02,759] [INFO] [launch.py:347:main] Process 70024 exits successfully.
+10.0.16.14: [2024-05-15 06:19:24,783] [INFO] [launch.py:347:main] Process 70025 exits successfully.
+10.0.16.13: [2024-05-15 14:19:27,378] [INFO] [launch.py:347:main] Process 1109594 exits successfully.
+10.0.16.13: rank: 2 end2end time is 16712.637857154565 ms
+10.0.16.13: rank: 2 model time is 1799.762161007634 ms
+10.0.16.13: [2024-05-15 14:20:31,450] [INFO] [launch.py:347:main] Process 1109593 exits successfully.

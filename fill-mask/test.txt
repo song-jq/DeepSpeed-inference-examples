@@ -1,0 +1,12 @@
+[2024-04-11 08:12:35,720] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-11 08:12:35,995] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-04-11 08:12:36,018] [INFO] [runner.py:555:main] cmd = /home/kechengsheji/anaconda3/envs/Test04/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None test-layer.py
+[2024-04-11 08:12:37,087] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-11 08:12:37,412] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2024-04-11 08:12:37,412] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=2, node_rank=0
+[2024-04-11 08:12:37,412] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2024-04-11 08:12:37,412] [INFO] [launch.py:163:main] dist_world_size=2
+[2024-04-11 08:12:37,412] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2024-04-11 08:12:38,414] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 63800
+[2024-04-11 08:12:38,439] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 63801
+[2024-04-11 08:12:38,439] [ERROR] [launch.py:321:sigkill_handler] ['/home/kechengsheji/anaconda3/envs/Test04/bin/python', '-u', 'test-layer.py', '--local_rank=1'] exits with return code = 1

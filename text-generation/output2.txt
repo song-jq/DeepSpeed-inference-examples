@@ -1,0 +1,189 @@
+[2024-03-04 09:16:33,472] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-04 09:16:34,779] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-03-04 09:16:36,666] [INFO] [runner.py:555:main] cmd = /home/kechengsheji/anaconda3/envs/Test04/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None inference-test.py --model bloom-3b --batch_size 2
+[2024-03-04 09:16:37,732] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-04 09:16:38,044] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2024-03-04 09:16:38,044] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=2, node_rank=0
+[2024-03-04 09:16:38,045] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2024-03-04 09:16:38,045] [INFO] [launch.py:163:main] dist_world_size=2
+[2024-03-04 09:16:38,045] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2024-03-04 09:16:39,350] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-04 09:16:39,386] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Namespace(model='bloom-3b', checkpoint_path=None, save_mp_checkpoint_path=None, batch_size=2, dtype='float16', hf_baseline=False, use_kernel=False, max_tokens=1024, max_new_tokens=50, greedy=False, use_meta_tensor=False, test_performance=False, local_rank=0, world_size=2, test_hybrid_engine=False, trust_remote_code=False)
+Namespace(model='bloom-3b', checkpoint_path=None, save_mp_checkpoint_path=None, batch_size=2, dtype='float16', hf_baseline=False, use_kernel=False, max_tokens=1024, max_new_tokens=50, greedy=False, use_meta_tensor=False, test_performance=False, local_rank=1, world_size=2, test_hybrid_engine=False, trust_remote_code=False)
+cuda:1
+[2024-03-04 09:16:39,538] [INFO] [utils.py:785:see_memory_usage] before init
+[2024-03-04 09:16:39,538] [INFO] [utils.py:786:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2024-03-04 09:16:39,538] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 5.55 GB, percent = 8.9%
+cuda:0
+initialization time: 30965.465307235718ms
+[2024-03-04 09:17:10,616] [INFO] [utils.py:785:see_memory_usage] after init
+[2024-03-04 09:17:10,618] [INFO] [utils.py:786:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2024-03-04 09:17:10,619] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 20.91 GB, percent = 33.4%
+deepspeed_engine
+[2024-03-04 09:17:10,619] [INFO] [logging.py:96:log_dist] [Rank -1] DeepSpeed info: version=0.9.5+fc9e1ee0, git-hash=fc9e1ee0, git-branch=HEAD
+[2024-03-04 09:17:10,620] [WARNING] [config_utils.py:69:_process_deprecated_field] Config parameter mp_size is deprecated use tensor_parallel.tp_size instead
+InferenceConfig: enabled=True tp_size=2 mpu=None tp_group=None
+[2024-03-04 09:17:10,620] [INFO] [logging.py:96:log_dist] [Rank -1] quantize_bits = 8 mlp_extra_grouping = False, quantize_groups = 1
+[2024-03-04 09:17:10,624] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-04 09:17:10,624] [INFO] [comm.py:594:init_distributed] cdb=None
+[2024-03-04 09:17:10,624] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+deepspeed_engine
+[2024-03-04 09:17:11,916] [INFO] [logging.py:96:log_dist] [Rank -1] DeepSpeed info: version=0.9.5+fc9e1ee0, git-hash=fc9e1ee0, git-branch=HEAD
+[2024-03-04 09:17:11,920] [WARNING] [config_utils.py:69:_process_deprecated_field] Config parameter mp_size is deprecated use tensor_parallel.tp_size instead
+InferenceConfig: enabled=True tp_size=2 mpu=None tp_group=None
+[2024-03-04 09:17:11,920] [INFO] [logging.py:96:log_dist] [Rank -1] quantize_bits = 8 mlp_extra_grouping = False, quantize_groups = 1
+[2024-03-04 09:17:11,925] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2024-03-04 09:17:11,925] [INFO] [comm.py:594:init_distributed] cdb=None
+tensor_parallel_group: <torch.distributed.distributed_c10d.ProcessGroup object at 0x7f0d3ba037f0>
+!deepspeed engine has no moe layers
+tensor_parallel_group: <torch.distributed.distributed_c10d.ProcessGroup object at 0x7f71b22588f0>
+!deepspeed engine has no moe layers
+AutoTP:  [(<class 'transformers.models.bloom.modeling_bloom.BloomBlock'>, ['self_attention.dense', 'mlp.dense_4h_to_h'])]
+replace transformer layer
+BloomForCausalLM(
+  (transformer): BloomModel(
+    (word_embeddings): Embedding(250880, 2560)
+    (word_embeddings_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+    (h): ModuleList(
+      (0-29): 30 x BloomBlock(
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (self_attention): BloomAttention(
+          (query_key_value): Linear(in_features=2560, out_features=7680, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (post_attention_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (mlp): BloomMLP(
+          (dense_h_to_4h): Linear(in_features=2560, out_features=10240, bias=True)
+          (gelu_impl): BloomGelu()
+          (dense_4h_to_h): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+      )
+    )
+    (ln_f): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+  )
+  (lm_head): Linear(in_features=2560, out_features=250880, bias=False)
+)
+AutoTP:  [(<class 'transformers.models.bloom.modeling_bloom.BloomBlock'>, ['mlp.dense_4h_to_h', 'self_attention.dense'])]
+replace transformer layer
+BloomModel(
+  (word_embeddings): Embedding(250880, 2560)
+  (word_embeddings_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+  (h): ModuleList(
+    (0-29): 30 x BloomBlock(
+      (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+      (self_attention): BloomAttention(
+        (query_key_value): Linear(in_features=2560, out_features=7680, bias=True)
+        (dense): Linear(in_features=2560, out_features=2560, bias=True)
+        (attention_dropout): Dropout(p=0.0, inplace=False)
+      )
+      (post_attention_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+      (mlp): BloomMLP(
+        (dense_h_to_4h): Linear(in_features=2560, out_features=10240, bias=True)
+        (gelu_impl): BloomGelu()
+        (dense_4h_to_h): Linear(in_features=10240, out_features=2560, bias=True)
+      )
+    )
+  )
+  (ln_f): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+)
+Embedding(250880, 2560)
+LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+ModuleList(
+  (0-29): 30 x BloomBlock(
+    (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+    (self_attention): BloomAttention(
+      (query_key_value): Linear(in_features=2560, out_features=7680, bias=True)
+      (dense): Linear(in_features=2560, out_features=2560, bias=True)
+      (attention_dropout): Dropout(p=0.0, inplace=False)
+    )
+    (post_attention_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+    (mlp): BloomMLP(
+      (dense_h_to_4h): Linear(in_features=2560, out_features=10240, bias=True)
+      (gelu_impl): BloomGelu()
+      (dense_4h_to_h): Linear(in_features=10240, out_features=2560, bias=True)
+    )
+  )
+)
+BloomForCausalLM(
+  (transformer): BloomModel(
+    (word_embeddings): Embedding(250880, 2560)
+    (word_embeddings_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+    (h): ModuleList(
+      (0-29): 30 x BloomBlock(
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (self_attention): BloomAttention(
+          (query_key_value): Linear(in_features=2560, out_features=7680, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (post_attention_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (mlp): BloomMLP(
+          (dense_h_to_4h): Linear(in_features=2560, out_features=10240, bias=True)
+          (gelu_impl): BloomGelu()
+          (dense_4h_to_h): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+      )
+    )
+    (ln_f): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+  )
+  (lm_head): Linear(in_features=2560, out_features=250880, bias=False)
+)
+BloomModel(
+  (word_embeddings): Embedding(250880, 2560)
+  (word_embeddings_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+  (h): ModuleList(
+    (0-29): 30 x BloomBlock(
+      (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+      (self_attention): BloomAttention(
+        (query_key_value): Linear(in_features=2560, out_features=7680, bias=True)
+        (dense): Linear(in_features=2560, out_features=2560, bias=True)
+        (attention_dropout): Dropout(p=0.0, inplace=False)
+      )
+      (post_attention_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+      (mlp): BloomMLP(
+        (dense_h_to_4h): Linear(in_features=2560, out_features=10240, bias=True)
+        (gelu_impl): BloomGelu()
+        (dense_4h_to_h): Linear(in_features=10240, out_features=2560, bias=True)
+      )
+    )
+  )
+  (ln_f): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+)
+Embedding(250880, 2560)
+LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+ModuleList(
+  (0-29): 30 x BloomBlock(
+    (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+    (self_attention): BloomAttention(
+      (query_key_value): Linear(in_features=2560, out_features=7680, bias=True)
+      (dense): Linear(in_features=2560, out_features=2560, bias=True)
+      (attention_dropout): Dropout(p=0.0, inplace=False)
+    )
+    (post_attention_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+    (mlp): BloomMLP(
+      (dense_h_to_4h): Linear(in_features=2560, out_features=10240, bias=True)
+      (gelu_impl): BloomGelu()
+      (dense_4h_to_h): Linear(in_features=10240, out_features=2560, bias=True)
+    )
+  )
+)
+LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+Linear(in_features=2560, out_features=250880, bias=False)
+LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+Linear(in_features=2560, out_features=250880, bias=False)
+local_rank: 1
+shape: torch.Size([2, 7, 2560])
+hidden_size: 1280
+[2024-03-04 09:17:15,911] [INFO] [utils.py:785:see_memory_usage] after init_inference
+[2024-03-04 09:17:15,912] [INFO] [utils.py:786:see_memory_usage] MA 4.52 GB         Max_MA 4.52 GB         CA 4.6 GB         Max_CA 5 GB 
+[2024-03-04 09:17:15,912] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 10.52 GB, percent = 16.8%
+local_rank: 0
+shape: torch.Size([2, 7, 2560])
+hidden_size: 1280
+shape: torch.Size([2, 7, 5760])
+shape: torch.Size([2, 7, 1920])
+[2024-03-04 09:17:17,094] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 61074
+[2024-03-04 09:17:17,119] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 61075
+[2024-03-04 09:17:17,119] [ERROR] [launch.py:321:sigkill_handler] ['/home/kechengsheji/anaconda3/envs/Test04/bin/python', '-u', 'inference-test.py', '--local_rank=1', '--model', 'bloom-3b', '--batch_size', '2'] exits with return code = 1

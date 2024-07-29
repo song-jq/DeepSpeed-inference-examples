@@ -1,0 +1,16 @@
+[2024-07-24 07:55:38,916] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-07-24 07:55:39,469] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-07-24 07:55:39,470] [INFO] [runner.py:555:main] cmd = /home/kechengsheji/anaconda3/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None test-bert.py --batch_size 10
+[2024-07-24 07:55:40,566] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-07-24 07:55:41,121] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2024-07-24 07:55:41,121] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=2, node_rank=0
+[2024-07-24 07:55:41,121] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2024-07-24 07:55:41,121] [INFO] [launch.py:163:main] dist_world_size=2
+[2024-07-24 07:55:41,121] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2024-07-24 07:55:45,747] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-07-24 07:55:45,747] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-07-24 07:55:58,609] [INFO] [logging.py:96:log_dist] [Rank -1] DeepSpeed info: version=0.9.5+fc9e1ee0, git-hash=fc9e1ee0, git-branch=HEAD
+[2024-07-24 07:55:58,622] [INFO] [logging.py:96:log_dist] [Rank -1] DeepSpeed info: version=0.9.5+fc9e1ee0, git-hash=fc9e1ee0, git-branch=HEAD
+[2024-07-24 07:56:00,168] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 63678
+[2024-07-24 07:56:00,169] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 63679
+[2024-07-24 07:56:00,194] [ERROR] [launch.py:321:sigkill_handler] ['/home/kechengsheji/anaconda3/bin/python', '-u', 'test-bert.py', '--local_rank=1', '--batch_size', '10'] exits with return code = 1
